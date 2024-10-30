@@ -13,7 +13,7 @@ class CreateUsuariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('usuarios', function (Blueprint $table) {
+        Schema::create('usuario', function (Blueprint $table) {
             $table->integer('id')->primary();
             $table->string('cpf', 20);
             $table->string('nome');
@@ -28,6 +28,6 @@ class CreateUsuariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('usuarios');
+        Schema::dropIfExists('usuario');
     }
 }

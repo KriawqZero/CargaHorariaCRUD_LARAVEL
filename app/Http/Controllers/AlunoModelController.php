@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\usuarios;
+use App\Models\usuario;
 use Illuminate\Http\Request;
 
 class AlunoModelController extends Controller
@@ -41,10 +41,10 @@ class AlunoModelController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\usuarios  $alunoModel
+     * @param  \App\Models\usuario  $alunoModel
      * @return \Illuminate\Http\Response
      */
-    public function show(usuarios $alunoModel)
+    public function show(usuario $alunoModel)
     {
         //
     }
@@ -52,10 +52,10 @@ class AlunoModelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\usuarios  $alunoModel
+     * @param  \App\Models\usuario  $alunoModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(usuarios $alunoModel)
+    public function edit(usuario $alunoModel)
     {
         //
     }
@@ -64,10 +64,10 @@ class AlunoModelController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\usuarios  $alunoModel
+     * @param  \App\Models\usuario  $alunoModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, usuarios $alunoModel)
+    public function update(Request $request, usuario $alunoModel)
     {
         //
     }
@@ -75,10 +75,10 @@ class AlunoModelController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\usuarios  $alunoModel
+     * @param  \App\Models\usuario  $alunoModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(usuarios $alunoModel)
+    public function destroy(usuario $alunoModel)
     {
         //
     }

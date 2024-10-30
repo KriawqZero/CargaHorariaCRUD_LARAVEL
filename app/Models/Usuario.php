@@ -2,10 +2,18 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Database\Eloquent\Model;
 
-class usuarios extends Model
+/**
+ * @method static where(string $string, mixed $cpf)
+ */
+class Usuario extends Model implements AuthenticatableContract
 {
-    use HasFactory;
+    protected $table = 'usuarios';
+    protected $fillable = ['id', 'cpf', 'nome', 'data_nascimento'];
+    public $timestamps = false;
+
+    use Authenticatable;
 }

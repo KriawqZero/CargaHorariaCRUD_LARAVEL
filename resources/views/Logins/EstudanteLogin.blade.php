@@ -10,16 +10,17 @@
         <div class="logo">
             <img src="{{url('assets/images/logoifms.png')}}" alt="logoifms">
         </div>
-        <g6>Entrar como aluno</g6>
 
-        <!--
+        @if($errors->any())
         <div id="alert" class="alert alert-danger" role="alert">
             <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dimiss="alert" aria-label="Close">X</button>
+            {{$errors->first()}}
         </div>
-        -->
+        @endif
 
+        <g6>Entrar como aluno</g6>
 
-        <form action="{{route('redirectLogin')}}" id="login-form" method="POST">
+        <form action="{{route('login.autenticar')}}" id="login-form" method="POST">
             @csrf
             <div class="form-group">
                 <label for="cpfForm">CPF:</label>
