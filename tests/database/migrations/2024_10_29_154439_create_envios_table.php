@@ -23,9 +23,9 @@ class CreateEnviosTable extends Migration
             $table->string('obs', 512)->nullable();
             $table->string('path', 2048);
             $table->tinyInteger('validado');
-            $table->timestamp('horario_enviado', 6)->useCurrent();
+            $table->timestamp('horario_enviado', 6)->default('current_timestamp(6)');
             $table->integer('carga_horaria')->nullable();
-
+            
             $table->foreign('id_aluno', 'envios_ibfk_1')->references('id')->on('usuarios')->onDelete('restrict')->onUpdate('restrict');
         });
     }

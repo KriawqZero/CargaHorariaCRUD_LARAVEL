@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\AlunoLoginController;
+use \App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/login', [AuthController::class, 'redirecionarLogin'])->name('redirectLogin');
+Route::post('/login', [AuthController::class, 'autenticar']);
+Route::post('/deslogar', [AuthController::class, 'deslogar']);
