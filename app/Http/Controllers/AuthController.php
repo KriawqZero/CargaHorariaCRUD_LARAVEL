@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Usuario;
+use App\Models\Servidor;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,6 +15,11 @@ class AuthController extends Controller
 
     }
 
+    public function redirecionarLoginServidor() {
+        return view('Logins.ServidorLogin');
+    }
+
+    //Autenticar como aluno
     public function autenticar(Request $request) {
         $request->validate([
             'cpf' => 'required',
@@ -29,15 +35,44 @@ class AuthController extends Controller
 
         if($usuario) {
             Auth::login($usuario);
-            return redirect()->route('home');
+            \Session::put('usuario', $usuario);
+            \Session::put('Aluno', 1);
+            return redirect()
+                ->route('home');
         } else {
-            return back()->withErrors([
+            return back()
+                ->withErrors([
                 'mensagem_erro' => 'CPF ou Data de Nascimento inválidas',
             ]);
         }
 
 
 
+    }
+
+    //Logar como administrador
+    public function admAutenticar(Request $request) {
+        $request->validate([
+            'email' => 'email|required',
+            'senha' => 'required',
+        ]);
+
+        $serv_usuario = Servidor::where('email', $request['email'])
+            ->where('senha', $request['senha'])
+            ->first() ;
+
+        if($serv_usuario) {
+            Auth::login($serv_usuario);
+            \Session::put('usuario', $serv_usuario);
+            \Session::put('Servidor', 1);
+            return redirect()
+                ->route('home');
+        } else {
+            return back()
+                ->withErrors([
+                'mensagem_erro' => 'Email ou senha inválidos',
+            ]);
+        }
     }
 
     public function deslogar(Request $request) {

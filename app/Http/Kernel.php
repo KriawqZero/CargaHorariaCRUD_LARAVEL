@@ -53,6 +53,7 @@ class Kernel extends HttpKernel
      * @var array<string, class-string|string>
      */
     protected $routeMiddleware = [
+        'redirecionarSeLogado' => \App\Http\Middleware\RedirecionarSeLogado::class,
         'checarSessao' => \App\Http\Middleware\ChecarSessao::class,
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,

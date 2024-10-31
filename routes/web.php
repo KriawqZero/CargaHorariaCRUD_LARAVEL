@@ -14,10 +14,29 @@ use \App\Http\Controllers\AuthController;
 |
 */
 
-Route::get('/login', [AuthController::class, 'redirecionarLogin'])->name('login');
-Route::post('/login', [AuthController::class, 'autenticar'])->name('login.autenticar');
-Route::post('/deslogar', [AuthController::class, 'deslogar'])->name('login.deslogar');
+Route::get('/login', [AuthController::class, 'redirecionarLogin'])
+    ->name('login');
+
+//Login como aluno
+Route::post('/login', [AuthController::class, 'autenticar'])
+    ->name('login.autenticar');
+
+Route::post('/deslogar', [AuthController::class, 'deslogar'])
+    ->name('login.deslogar');
+
+
+
+Route::get('/login/servidor', [AuthController::class, 'redirecionarLoginServidor'])
+    ->name('adm.login.redirecionar');
+
+//Login como servidor
+Route::post('/login/servidor/auth', [AuthController::class, 'admAutenticar'])
+    ->name('adm.login.autenticar');
+
+
+
 
 Route::get('/', function () {
-    return view('logado');
-})   ->name('home');
+    return view('Home.index');
+})  ->middleware('checarSessao')
+    ->name('home');

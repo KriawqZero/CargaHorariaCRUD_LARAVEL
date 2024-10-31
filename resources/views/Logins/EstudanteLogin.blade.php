@@ -13,12 +13,12 @@
 
         @if($errors->any())
         <div id="alert" class="alert alert-danger" role="alert">
-            <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dimiss="alert" aria-label="Close">X</button>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             {{$errors->first()}}
         </div>
         @endif
 
-        <g6>Entrar como aluno</g6>
+        <h6>Entrar como aluno</h6>
 
         <form action="{{route('login.autenticar')}}" id="login-form" method="POST">
             @csrf
@@ -33,25 +33,10 @@
             <button type="submit">Entrar</button>
         </form>
 
-        <a href="#">Sou professor/servidor</a>
+        <form method="GET" action="{{route('adm.login.redirecionar')}}">
+            <button>>Sou professor/servidor</button>
+        </form>
 
     </div>
 
-    <script>
-        const input = document.getElementById("cpf");
-        input.addEventListener('keypress', () => {
-            let inputlength = input.value.length;
-
-            if (inputlength === 3 || inputlength === 7) input.value += '.';
-            if (inputlength === 11) input.value += '-';
-        });
-
-        const input_nasc = document.getElementById('datanasc');
-        input_nasc.addEventListener('keypress', () => {
-            let inputlength_nasc = input_nasc.value.length;
-
-            if (inputlength_nasc === 2 || inputlength_nasc === 5) input_nasc.value += '/';
-        })
-
-    </script>
 @endsection

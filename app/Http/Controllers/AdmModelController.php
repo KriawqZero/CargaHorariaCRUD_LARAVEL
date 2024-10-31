@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AdmModel;
+use App\Models\Servidor;
 use Illuminate\Http\Request;
 
 class AdmModelController extends Controller
@@ -41,10 +41,10 @@ class AdmModelController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\AdmModel $admModel
+     * @param \App\Models\Servidor $admModel
      * @return \Illuminate\Http\Response
      */
-    public function show(AdmModel $admModel)
+    public function show(Servidor $admModel)
     {
         //
     }
@@ -52,10 +52,10 @@ class AdmModelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\AdmModel $admModel
+     * @param \App\Models\Servidor $admModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(AdmModel $admModel)
+    public function edit(Servidor $admModel)
     {
         //
     }
@@ -64,10 +64,10 @@ class AdmModelController extends Controller
      * Update the specified resource in storage.
      *
      * @param \Illuminate\Http\Request $request
-     * @param \App\Models\AdmModel $admModel
+     * @param \App\Models\Servidor $admModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, AdmModel $admModel)
+    public function update(Request $request, Servidor $admModel)
     {
         //
     }
@@ -75,10 +75,10 @@ class AdmModelController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\AdmModel $admModel
+     * @param \App\Models\Servidor $admModel
      * @return \Illuminate\Http\Response
      */
-    public function destroy(AdmModel $admModel)
+    public function destroy(Servidor $admModel)
     {
         //
     }
